@@ -57,7 +57,7 @@ class SuratMasuk extends CI_Controller {
 
 	public function form_process(){
 		$config['upload_path'] 		= './upload/surat_masuk';
-		$config['allowed_types'] 	= 'gif|jpg|png|pdf|doc|docx';
+		$config['allowed_types'] 	= '*';
 		$config['max_size']			= '2000';
 		$config['max_width']  		= '3000';
 		$config['max_height'] 		= '3000';

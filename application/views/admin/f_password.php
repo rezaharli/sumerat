@@ -27,3 +27,8 @@
 	</table>
 	</fieldset>
 </form>
+
+<?php 
+
+/* End of file f_password.php */
+/* Location: ./application/views/admin/f_password.php */

@@ -37,7 +37,11 @@ echo form_open_multipart($form_action, '', $hidden_input);
 			<tr><td width="20%">Tanggal Surat</td><td><b><input type="text" name="tanggal_surat" required value="<?php if(isset($results)) echo $results->tanggal_surat; ?>" id="tanggal_surat" style="width: 400px" class="form-control"></b></td></tr>	
 			<tr><td width="20%">Nomor Surat</td><td><b><input type="text" name="nomor_surat" required value="<?php if(isset($results)) echo $results->nomor_surat; ?>" style="width: 400px" class="form-control"></td></tr>	
 			<tr><td width="20%">Lampiran</td><td><b><input type="text" name="lampiran" value="<?php if(isset($results)) echo $results->lampiran; ?>" style="width: 400px" class="form-control"></b></td></tr>	
-			<tr><td width="20%">Diajukan Kepada</td><td><b><input type="text" name="diajukan_kepada" value="<?php if(isset($results)) echo $results->diajukan_kepada; ?>" style="width: 400px" class="form-control"></b></td></tr>	
+			<tr><td width="20%">Diajukan Kepada</td><td>
+				<?php
+				echo form_checkbox(array('name' => 'diajukan_kepada_sekretaris', 'value' => 'Sekretaris')).'Sekretaris';
+				echo form_checkbox(array('name' => 'diajukan_kepada_kepala_dinas', 'value' => 'Kepala Dinas')).'Kepala Dinas';
+				?>
 			<tr><td width="20%">Instruksi</td><td><b><input type="text" name="instruksi" value="<?php if(isset($results)) echo $results->instruksi; ?>" style="width: 400px" class="form-control"></b></td></tr>	
 			<tr><td width="20%">File Surat (Scan)</td><td><b><input type="file" name="file_surat" class="form-control" style="width: 400px"></b></td></tr>
 			<tr>
@@ -50,6 +54,7 @@ echo form_open_multipart($form_action, '', $hidden_input);
 	</div>
 </div>
 <?php 
+
 echo form_close();
 
 /* End of file f_surat_masuk.php */

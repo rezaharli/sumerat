@@ -33,7 +33,7 @@
 				<th>Tanggal Surat</th>
 				<th>Nomor Surat</th>
 				<th>Lampiran</th>
-				<th>Diajukan Kepada</th>
+				<th width="7%">Diajukan Kepada</th>
 				<th>Instruksi</th>
 				<th width="5%">Aksi</th>
 			</tr>

@@ -76,9 +76,19 @@ class SuratMasuk extends CI_Controller {
             'tanggal_surat'			=> addslashes($this->input->post('tanggal_surat')),
             'nomor_surat' 			=> addslashes($this->input->post('nomor_surat')),
             'lampiran' 				=> addslashes($this->input->post('lampiran')),  
-            'diajukan_kepada'	 	=> addslashes($this->input->post('diajukan_kepada')),
+            'diajukan_kepada'	 	=> '',
             'instruksi'			 	=> addslashes($this->input->post('instruksi'))
             );
+
+		$diajukan_kepada_sekretaris 	= addslashes($this->input->post('diajukan_kepada_sekretaris'));
+		if(isset($diajukan_kepada_sekretaris)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
+		}
+
+		$diajukan_kepada_kepala_dinas 	= addslashes($this->input->post('diajukan_kepada_kepala_dinas'));
+		if(isset($diajukan_kepada_kepala_dinas)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_dinas.'</p>';
+		}
 
 		if ($this->upload->do_upload('file_surat')) {
 			$upload_data = $this->upload->data();

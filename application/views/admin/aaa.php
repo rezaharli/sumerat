@@ -136,7 +136,7 @@
 	            				<i class="icon-user icon-white"></i><?php echo " ".$this->session->userdata('level') ?><span class="caret"></span>
 	            			</a>
 	            			<ul class="dropdown-menu" aria-labelledby="themes">
-	            				<li><a tabindex="-1" href="<?php echo base_url(); ?>home/passwod">Rubah Password</a></li>
+	            				<li><a tabindex="-1" href="<?php echo base_url(); ?>ubahpassword">Rubah Password</a></li>
 	            				<li><a tabindex="-1" href="<?php echo base_url(); ?>logout">Logout</a></li>
 	            			</ul>
 	            		</li>

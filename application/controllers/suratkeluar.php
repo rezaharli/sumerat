@@ -31,7 +31,7 @@ class SuratKeluar extends CI_Controller {
 	public function cetak() {
 		$id = $this->uri->segment(3);
 		$a['results'] = $this->surat_keluar->select_by_id($id);
-		$this->load->view('admin/cetak_disposisi', $a);
+		$this->load->view('admin/cetak_kartu_surat_keluar', $a);
 	}
 
 	public function delete() {

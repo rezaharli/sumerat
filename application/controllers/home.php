@@ -169,53 +169,6 @@ class Home extends CI_Controller {
 		
 		echo json_encode($klasifikasi);
 	}
-	
-	// public function get_instansi_lain() {
-	// 	$kode 				= $this->input->post('pengirim',TRUE);
-		
-	// 	$data 				=  $this->db->query("SELECT pengirim FROM surat_masuk WHERE pengirim LIKE '%$kode%' GROUP BY pengirim")->result();
-		
-	// 	$klasifikasi 		=  array();
- //        foreach ($data as $d) {
-	// 		$klasifikasi[] 	= $d->pengirim;
-	// 	}
-		
-	// 	echo json_encode($klasifikasi);
-	// }
-	
-	public function passwod() {
-		if ( ! $this->session->userdata('is_logged_in')) {
-			redirect('login');
-		}
-		
-		$ke				= $this->uri->segment(3);
-		$nip			= $this->session->userdata('admin_nip');
-		
-		//var post
-		$p1				= md5($this->input->post('p1'));
-		$p2				= md5($this->input->post('p2'));
-		$p3				= md5($this->input->post('p3'));
-		
-		if ($ke == "simpan") {
-			$cek_password_lama	= $this->db->query("SELECT password FROM user WHERE nip = $nip")->row();
-			
-			if ($cek_password_lama->password != $p1) {
-				$this->session->set_flashdata('k_passwod', '<div id="alert" class="alert alert-error">Password Lama tidak sama'.$this->db->last_query().'-'.$cek_password_lama->p.'-'.$p1.'</div>');
-				redirect('admin/passwod');
-			} else if ($p2 != $p3) {
-				$this->session->set_flashdata('k_passwod', '<div id="alert" class="alert alert-error">Password Baru 1 dan 2 tidak cocok</div>');
-				redirect('admin/passwod');
-			} else {
-				$this->db->query("UPDATE user SET password = '$p3' WHERE nip = '$nip'");
-				$this->session->set_flashdata('k_passwod', '<div id="alert" class="alert alert-success">Password berhasil diperbaharui</div>');
-				redirect('admin/passwod');
-			}
-		} else {
-			$a['page']	= "f_passwod";
-		}
-		
-		$this->load->view('admin/aaa', $a);
-	}
 }
 
 /* End of file home.php */

@@ -11,7 +11,7 @@ class UbahPassword extends CI_Controller {
 	}
 	
 	public function index() {
-		$data['page']		= "f_passwod";
+		$data['page']		= "f_password";
 		$this->load->view('admin/aaa', $data);
 	}
 	
@@ -36,5 +36,6 @@ class UbahPassword extends CI_Controller {
 	}
 
 }
+
 /* End of file ubahpassword.php */
 /* Location: ./application/controllers/ubahpassword.php */

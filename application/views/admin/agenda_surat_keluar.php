@@ -84,3 +84,7 @@
 </body>
 </html>
 
+<?php 
+
+/* End of file agenda_surat_keluar.php */
+/* Location: ./application/views/admin/agenda_surat_keluar.php */

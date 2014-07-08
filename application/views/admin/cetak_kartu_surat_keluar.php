@@ -47,3 +47,8 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 </table>
 </body>
 </html>
+
+<?php 
+
+/* End of file cetak_kartu_surat_keluar.php */
+/* Location: ./application/views/admin/cetak_kartu_surat_keluar.php */

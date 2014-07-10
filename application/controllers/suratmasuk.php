@@ -10,52 +10,52 @@ class SuratMasuk extends CI_Controller {
 		$this->load->model('surat_masuk');
 	}
 	
-	public function index() {
+	function index() {
 		$data["results"] 	= $this->surat_masuk->select();
 		$data['page']		= "surat_masuk";
 		
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function add() {
+	function add() {
 		$data['page'] = "f_surat_masuk";
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function cari() {
+	function cari() {
 		$key		= $this->input->post('search');
 		$results 	= $this->surat_masuk->select($key);
 		echo json_encode ($results);
 	}
 
-	public function cetak() {
+	function cetak() {
 		$id = $this->uri->segment(3);
 		$a['results'] = $this->surat_masuk->select_by_id($id);
 		$this->load->view('admin/cetak_disposisi', $a);
 	}
 
-	public function delete() {
+	function delete() {
 		$id	= $this->uri->segment(3);
 		$this->surat_masuk->delete($id);
 		redirect('suratmasuk');
 	}
 
-	public function do_add($data){
+	function do_add($data){
 		$this->surat_masuk->add($data);
 	}
 
-	public function do_edit($id, $data){
+	function do_edit($id, $data){
 		$this->surat_masuk->update($id, $data);
 	}
 
-	public function edit() {
+	function edit() {
 		$id					= $this->uri->segment(3);
 		$data['results']	= $this->surat_masuk->select_by_id($id);
 		$data['page']		= "f_surat_masuk";
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function form_process(){
+	function form_process(){
 		$config['upload_path'] 		= './upload/surat_masuk';
 		$config['allowed_types'] 	= '*';
 		$config['max_size']			= '2000';

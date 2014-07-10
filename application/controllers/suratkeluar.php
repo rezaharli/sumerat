@@ -10,52 +10,52 @@ class SuratKeluar extends CI_Controller {
 		$this->load->model('surat_keluar');
 	}
 	
-	public function index() {
+	function index() {
 		$data["results"] 	= $this->surat_keluar->select();
 		$data['page']		= "surat_keluar";
 		
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function add() {
+	function add() {
 		$data['page'] = "f_surat_keluar";
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function cari() {
+	function cari() {
 		$key		= $this->input->post('search');
 		$results 	= $this->surat_keluar->select($key);
 		echo json_encode ($results);
 	}
 
-	public function cetak() {
+	function cetak() {
 		$id = $this->uri->segment(3);
 		$a['results'] = $this->surat_keluar->select_by_id($id);
 		$this->load->view('admin/cetak_kartu_surat_keluar', $a);
 	}
 
-	public function delete() {
+	function delete() {
 		$id	= $this->uri->segment(3);
 		$this->surat_keluar->delete($id);
 		redirect('suratkeluar');
 	}
 
-	public function do_add($data){
+	function do_add($data){
 		$this->surat_keluar->add($data);
 	}
 
-	public function do_edit($id, $data){
+	function do_edit($id, $data){
 		$this->surat_keluar->update($id, $data);
 	}
 
-	public function edit() {
+	function edit() {
 		$id					= $this->uri->segment(3);
 		$data['results']	= $this->surat_keluar->select_by_id($id);
 		$data['page']		= "f_surat_keluar";
 		$this->load->view('admin/aaa', $data);
 	}
 
-	public function form_process(){
+	function form_process(){
 		$config['upload_path'] 		= './upload/surat_keluar';
 		$config['allowed_types'] 	= '*';
 		$config['max_size']			= '2000';

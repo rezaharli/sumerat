@@ -10,12 +10,12 @@ class UbahPassword extends CI_Controller {
 		$this->load->model('user');
 	}
 	
-	public function index() {
+	function index() {
 		$data['page']		= "f_password";
 		$this->load->view('admin/aaa', $data);
 	}
 	
-	public function form_process() {
+	function form_process() {
 		$oldpass	= $this->input->post('oldpass');
 		$newpass1	= $this->input->post('newpass1');
 		$newpass2	= $this->input->post('newpass2');

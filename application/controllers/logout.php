@@ -6,7 +6,7 @@ class Logout extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function index(){
+	function index(){
 	    if($this->session->userdata('is_logged_in')) {
         	$this->session->sess_destroy();
 	    }

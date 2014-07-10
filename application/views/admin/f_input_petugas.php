@@ -17,19 +17,19 @@
 						<tr>
 							<td width="30%">Nama Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="nama_petugas[]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[nama][]" />
 							</td>
 						</tr>
 						<tr>
 							<td width="30%">NIP Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="nip_petugas[]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[utusan][]" />
 							</td>
 						</tr>
 						<tr>
 							<td width="30%">Jabatan Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="jabatan_petugas[]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[jabatan][]" />
 							</td>
 						</tr>
 					</table>

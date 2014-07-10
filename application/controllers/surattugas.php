@@ -35,9 +35,11 @@ class SuratTugas extends CI_Controller {
 		}
 	}
 
-	function asdf() {
+	function cetak() {
 		$petugas = $this->input->post('petugas');
+		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
 		echo "<pre>";
+		print_r($surat_tugas_data);
 		print_r($petugas);
 	}
 

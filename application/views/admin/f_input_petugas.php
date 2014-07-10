@@ -23,7 +23,7 @@
 						<tr>
 							<td width="30%">NIP Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="petugas[utusan][]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[nip][]" />
 							</td>
 						</tr>
 						<tr>

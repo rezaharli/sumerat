@@ -4,7 +4,7 @@
 			<div class="navbar navbar-inverse">
 				<div class="container">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">Surat Masuk</a>
+						<a class="navbar-brand" href="#">Surat Keluar</a>
 					</div>
 					<div class="navbar-collapse collapse navbar-inverse-collapse" style="margin-right: -20px">
 						<ul class="nav navbar-nav">

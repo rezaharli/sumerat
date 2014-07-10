@@ -37,24 +37,8 @@
 				$( "#kode_input" ).autocomplete({
 					source: function(request, response) {
 						$.ajax({ 
-							url: "<?php echo site_url('home/get_klasifikasi'); ?>",
+							url: "<?php echo site_url('kodesurat/get_autocomplete'); ?>",
 							data: { kode: $("#kode_input").val()},
-							dataType: "json",
-							type: "POST",
-							success: function(data){
-								response(data);
-							}    
-						});
-					},
-				});
-			});
-			
-			$(function () {
-				$( "#dari" ).autocomplete({
-					source: function(request, response) {
-						$.ajax({ 
-							url: "<?php echo site_url('home/get_instansi_lain'); ?>",
-							data: { kode: $("#dari").val()},
 							dataType: "json",
 							type: "POST",
 							success: function(data){

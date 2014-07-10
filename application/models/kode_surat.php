@@ -3,12 +3,14 @@ class Kode_Surat extends CI_Model {
 
     var $table = 'kode_surat';
 
-    function select_record($limit, $start, $key = null) {
+    function select_record($limit = null, $start = null, $key = null) {
         if( ! empty($key)) {
             $this->db->like('kode', $key);
             $this->db->or_like('uraian', $key);
         }
-        $this->db->limit($limit, $start);
+        if( ! (empty($limit) && empty($start))) {
+            $this->db->limit($limit, $start);
+        }
         $query = $this->db->get($this->table);
         return ($query->num_rows() > 0)  ? $query->result() : FALSE;
         

@@ -64,6 +64,10 @@
 					dateFormat: 'yy-mm-dd'
 				});
 			});
+
+			$(function() {
+    			$('form:first *:input[type!=hidden]:first').focus();
+    		});
 			
 		});
 		// ]]>

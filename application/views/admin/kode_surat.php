@@ -8,7 +8,7 @@
 					</div>
 					<div class="navbar-collapse collapse navbar-inverse-collapse" style="margin-right: -20px">
 						<ul class="nav navbar-nav navbar-right">
-							<form class="navbar-form navbar-left" method="post" action="<?=base_URL()?>kodesurat/cari">
+							<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL()?>kodesurat/cari">
 								<input type="text" class="form-control" name="cari" id="search" style="width: 200px" placeholder="Kata kunci pencarian ..." />
 							</form>
 						</ul>

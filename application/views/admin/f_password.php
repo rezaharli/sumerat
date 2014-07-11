@@ -7,7 +7,7 @@
 </div><!-- /.navbar -->
 <?php echo $this->session->flashdata("error");?>
 	
-<form action="<?=base_URL()?>ubahpassword/form_process" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
+<form action="<?php echo base_URL()?>ubahpassword/form_process" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
 
 	<table class="table-form" width="100%">
 	<tr><td width="20%">NIP</td>
@@ -22,7 +22,7 @@
 	<tr><td colspan="2">
 	<br>
 	<button type="submit" class="btn btn-primary">Simpan</button>
-	<a href="<?=base_URL()?>" class="btn btn-success">Kembali</a>
+	<a href="<?php echo base_URL()?>" class="btn btn-success">Kembali</a>
 	</td></tr>
 	</table>
 	</fieldset>

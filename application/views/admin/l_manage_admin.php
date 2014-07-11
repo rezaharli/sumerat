@@ -13,7 +13,7 @@
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" method="post" action="<?=base_URL()?>admin/manage_admin/cari">
+				<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL()?>admin/manage_admin/cari">
 					<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
 					<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
 				</form>
@@ -60,13 +60,13 @@
 		?>
 		<tr>
 			<td class="ctr"><?php echo $b->id;?></td>
-			<td><?=$b->username?></td>
-			<td><?=$b->nama."<br>".$b->nip?></td>
-			<td><?=$b->level?></td>
+			<td><?php echo $b->username?></td>
+			<td><?php echo $b->nama."<br>".$b->nip?></td>
+			<td><?php echo $b->level?></td>
 			<td class="ctr">
 				<div class="btn-group">
-					<a href="<?=base_URL()?>admin/manage_admin/edt/<?=$b->id?>" class="btn btn-success btn-sm" title="Edit Data"><i class="icon-edit icon-white"> </i> Edt</a>
-					<!--<a href="<?=base_URL()?>admin/manage_admin/del/<?=$b->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="icon-trash icon-remove">  </i> Del</a>-->			
+					<a href="<?php echo base_URL()?>admin/manage_admin/edt/<?php echo $b->id?>" class="btn btn-success btn-sm" title="Edit Data"><i class="icon-edit icon-white"> </i> Edt</a>
+					<!--<a href="<?php echo base_URL()?>admin/manage_admin/del/<?php echo $b->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="icon-trash icon-remove">  </i> Del</a>-->			
 				</div>					
 			</td>
 		</tr>

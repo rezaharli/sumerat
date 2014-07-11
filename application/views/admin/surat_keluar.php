@@ -65,13 +65,13 @@
 						<td><?php echo $result->dinas_instansi;?></td>
 						<td class="ctr">
 							<div class="btn-group">
-								<a href="<?=base_URL()?>suratkeluar/edit/<?=$result->id?>" class="btn btn-success btn-sm" title="Edit Data">
+								<a href="<?php echo base_URL()?>suratkeluar/edit/<?php echo $result->id?>" class="btn btn-success btn-sm" title="Edit Data">
 									<i class="icon-edit icon-white"> </i> Edit
 								</a>
-								<a href="<?=base_URL()?>suratkeluar/delete/<?=$result->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')">
+								<a href="<?php echo base_URL()?>suratkeluar/delete/<?php echo $result->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')">
 									<i class="icon-trash icon-remove">  </i> Delete
 								</a>			
-								<a href="<?=base_URL()?>suratkeluar/cetak/<?=$result->id?>" class="btn btn-info btn-sm" target="_blank" title="Cetak Disposisi">
+								<a href="<?php echo base_URL()?>suratkeluar/cetak/<?php echo $result->id?>" class="btn btn-info btn-sm" target="_blank" title="Cetak Disposisi">
 									<i class="icon-print icon-white"> </i> Cetak
 								</a>
 							</div>	
@@ -120,8 +120,8 @@
 											"<td class=\"ctr\">" +
 												"<div class=\"btn-group\">" +
 													"<a href=\"<?php echo base_URL()?>suratkeluar/edit/" + val.id + "\" class=\"btn btn-success btn-sm\" title=\"Edit Data\"><i class=\"icon-edit icon-white\"> </i> Edit</a>" +
-													"<a href=\"<?=base_URL()?>suratkeluar/delete/" + val.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a>" +
-													"<a href=\"<?=base_URL()?>suratkeluar/cetak/" + val.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
+													"<a href=\"<?php echo base_URL()?>suratkeluar/delete/" + val.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a>" +
+													"<a href=\"<?php echo base_URL()?>suratkeluar/cetak/" + val.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
 												"</div>" +	
 											"</td>"
 								    		));

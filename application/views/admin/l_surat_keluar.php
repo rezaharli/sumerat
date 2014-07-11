@@ -13,7 +13,7 @@
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" method="post" action="<?=base_URL()?>admin/surat_keluar/cari">
+				<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL()?>admin/surat_keluar/cari">
 					<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
 					<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
 				</form>
@@ -60,16 +60,16 @@
 		?>
 		<tr>
 			<td><?php echo $b->no_agenda."/".$b->kode;?></td>
-			<td><?=$b->isi_ringkas."<br><b>File : </b><i><a href='".base_URL()."upload/surat_keluar/".$b->file."' target='_blank'>".$b->file."</a>"?></td>
-			<td><?=$b->tujuan?></td>
-			<td><?=$b->no_surat."<br><i>".tgl_jam_sql($b->tgl_surat)."</i>"?></td>
+			<td><?php echo $b->isi_ringkas."<br><b>File : </b><i><a href='".base_URL()."upload/surat_keluar/".$b->file."' target='_blank'>".$b->file."</a>"?></td>
+			<td><?php echo $b->tujuan?></td>
+			<td><?php echo $b->no_surat."<br><i>".tgl_jam_sql($b->tgl_surat)."</i>"?></td>
 			<td class="ctr">
 				<?php  
 				if ($b->pengolah == $this->session->userdata('admin_id')) {
 				?>
 				<div class="btn-group">
-					<a href="<?=base_URL()?>admin/surat_keluar/edt/<?=$b->id?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
-					<a href="<?=base_URL()?>admin/surat_keluar/del/<?=$b->id?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda Yakin..?')">
+					<a href="<?php echo base_URL()?>admin/surat_keluar/edt/<?php echo $b->id?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
+					<a href="<?php echo base_URL()?>admin/surat_keluar/del/<?php echo $b->id?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda Yakin..?')">
 					<i class="icon-trash icon-white"> </i> Hapus</a>
 				</div>	
 				<?php } else { ?>

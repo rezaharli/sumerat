@@ -43,7 +43,7 @@ echo form_open_multipart($form_action, '', $hidden_input);
 			<tr>
 				<td colspan="2">
 				<br><button type="submit" class="btn btn-primary">Simpan</button>
-				<a href="<?=base_URL()?>suratkeluar" class="btn btn-success">Kembali</a>
+				<a href="<?php echo base_URL()?>suratkeluar" class="btn btn-success">Kembali</a>
 				</td>
 			</tr>
 		</table>	

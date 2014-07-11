@@ -14,7 +14,7 @@
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" method="post" action="<?=base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/cari">
+				<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/cari">
 					<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
 					<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
 				</form>
@@ -63,11 +63,11 @@
 			<td class="ctr"><?php echo $no;?></td>
 			<td><?php echo $b->kpd_yth; ?></td>
 			<td><?php echo $b->isi_disposisi; ?></td>
-			<td><?=$b->sifat."<br><i>Batas waktu s.d. ".tgl_jam_sql($b->batas_waktu)."</i>"?></td>
+			<td><?php echo $b->sifat."<br><i>Batas waktu s.d. ".tgl_jam_sql($b->batas_waktu)."</i>"?></td>
 			<td class="ctr">
 				<div class="btn-group">
-					<a href="<?=base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/edt/<?=$b->id?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
-					<a href="<?=base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/del/<?=$b->id?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda Yakin..?')">
+					<a href="<?php echo base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/edt/<?php echo $b->id?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
+					<a href="<?php echo base_URL()?>admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/del/<?php echo $b->id?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda Yakin..?')">
 					<i class="icon-trash icon-white"> </i> Hapus</a>
 				</div>					
 			</td>

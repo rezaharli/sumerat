@@ -7,7 +7,7 @@
 </div><!-- /.navbar -->
 <?php echo $this->session->flashdata("error");?>
 	
-<form action="<?=base_URL()?>surattugas/cetak/" method="post" accept-charset="utf-8">	
+<form action="<?php echo base_URL()?>surattugas/cetak/" method="post" accept-charset="utf-8">	
 
 	<table class="table-form" align="center" width="100%" border="5">
 		<tr>
@@ -40,7 +40,7 @@
 			<?php endfor;?>
 			<td width="33%" align="center">
 				<button type="submit" class="btn btn-primary">Cetak</button>
-				<a href="<?=base_URL()?>suratmasuk" class="btn btn-success">Kembali</a>
+				<a href="<?php echo base_URL()?>suratmasuk" class="btn btn-success">Kembali</a>
 			</td>
 		</tr>
 

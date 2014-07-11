@@ -67,14 +67,17 @@
 						<td><?php echo $result->instruksi;?></td>
 						<td class="ctr">
 							<div class="btn-group">
-								<a href="<?=base_URL()?>suratmasuk/edit/<?=$result->id?>" class="btn btn-success btn-sm" title="Edit Data">
+								<a href="<?php echo base_URL()?>suratmasuk/edit/<?php echo $result->id?>" class="btn btn-success btn-sm" title="Edit Data">
 									<i class="icon-edit icon-white"> </i> Edit
 								</a><br />
-								<a href="<?=base_URL()?>suratmasuk/delete/<?=$result->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')">
+								<a href="<?php echo base_URL()?>suratmasuk/delete/<?php echo $result->id?>" class="btn btn-warning btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')">
 									<i class="icon-trash icon-remove">  </i> Delete
 								</a><br />		
-								<a href="<?=base_URL()?>suratmasuk/cetak/<?=$result->id?>" class="btn btn-info btn-sm" target="_blank" title="Cetak Disposisi">
+								<a href="<?php echo base_URL()?>suratmasuk/cetak/<?php echo $result->id?>" class="btn btn-info btn-sm" target="_blank" title="Cetak Disposisi">
 									<i class="icon-print icon-white"> </i> Cetak
+								</a><br />		
+								<a href="<?php echo base_URL()?>surattugas/index/<?php echo $result->id?>" class="btn btn-success btn-sm" title="Cetak Surat Tugas">
+									<i class="icon-print icon-white"> </i> Cetak Surat Tugas
 								</a>
 							</div>	
 						</td>
@@ -123,8 +126,8 @@
 											"<td class=\"ctr\">" +
 												"<div class=\"btn-group\">" +
 													"<a href=\"<?php echo base_URL()?>suratmasuk/edit/" + val.id + "\" class=\"btn btn-success btn-sm\" title=\"Edit Data\"><i class=\"icon-edit icon-white\"> </i> Edit</a><br />" +
-													"<a href=\"<?=base_URL()?>suratmasuk/delete/" + val.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a><br />" +
-													"<a href=\"<?=base_URL()?>suratmasuk/cetak/" + val.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
+													"<a href=\"<?php echo base_URL()?>suratmasuk/delete/" + val.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a><br />" +
+													"<a href=\"<?php echo base_URL()?>suratmasuk/cetak/" + val.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
 												"</div>" +	
 											"</td>"
 								    		));

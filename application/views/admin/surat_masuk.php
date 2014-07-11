@@ -28,6 +28,7 @@
 				<th>Kode</th>
 				<th>Nomor Urut</th>
 				<th>Tanggal Penyelesaian</th>
+				<th>Perihal</th>
 				<th>Isi Ringkas, File</th>
 				<th>Asal Surat</th>
 				<th>Tanggal Surat</th>
@@ -51,6 +52,7 @@
 						<td><?php echo $result->kode;?></td>
 						<td><?php echo $result->nomor_urut;?></td>
 						<td><?php echo $result->tanggal_penyelesaian;?></td>
+						<td><?php echo $result->perihal;?></td>
 						<td>
 							<?php 
 							echo $result->isi_ringkas;
@@ -111,6 +113,7 @@
 											"<td>" + val.kode + "</td>" +
 											"<td>" + val.nomor_urut + "</td>" +
 											"<td>" + val.tanggal_penyelesaian + "</td>" +
+											"<td>" + val.perihal + "</td>" +
 											"<td>" + 
 											val.isi_ringkas + 
 											"<?php if(" + val.file + " != ""){ ?>" +

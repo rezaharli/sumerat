@@ -22,8 +22,8 @@ echo form_open_multipart($form_action, '', $hidden_input);
 			<tr><td width="20%">Nomor Urut</td><td><b>
 				<input type="text" name="nomor_urut" required value="<?php if(isset($results)) echo $results->nomor_urut; ?>" style="width: 400px" class="form-control">
 			</b></td></tr>
-			<tr><td width="20%">Tanggal Penyelesaian</td><td><b>
-				<input type="text" name="tanggal_penyelesaian" value="<?php if(isset($results)) echo $results->tanggal_penyelesaian; ?>" style="width: 400px" class="form-control" id="tanggal_penyelesaian">
+			<tr><td width="20%">Perihal</td><td><b>
+				<input type="text" name="perihal" value="<?php if(isset($results)) echo $results->perihal; ?>" style="width: 400px" class="form-control" id="perihal">
 			</b></td></tr>
 			<tr><td width="20%">Isi Ringkas</td><td><b>
 				<textarea name="isi_ringkas" required style="width: 400px; height: 200px" class="form-control"><?php if(isset($results)) echo $results->isi_ringkas; ?></textarea>
@@ -37,13 +37,19 @@ echo form_open_multipart($form_action, '', $hidden_input);
 			<tr><td width="20%">Tanggal Surat</td><td><b><input type="text" name="tanggal_surat" required value="<?php if(isset($results)) echo $results->tanggal_surat; ?>" id="tanggal_surat" style="width: 400px" class="form-control"></b></td></tr>	
 			<tr><td width="20%">Nomor Surat</td><td><b><input type="text" name="nomor_surat" required value="<?php if(isset($results)) echo $results->nomor_surat; ?>" style="width: 400px" class="form-control"></td></tr>	
 			<tr><td width="20%">Lampiran</td><td><b><input type="text" name="lampiran" value="<?php if(isset($results)) echo $results->lampiran; ?>" style="width: 400px" class="form-control"></b></td></tr>	
-			<tr><td width="20%">Diajukan Kepada</td><td>
+			<tr><td width="20%" valign="top">Diajukan Kepada</td><td>
 				<?php
-				echo form_checkbox(array('name' => 'diajukan_kepada_sekretaris', 'value' => 'Sekretaris')).'Sekretaris';
-				echo form_checkbox(array('name' => 'diajukan_kepada_kepala_dinas', 'value' => 'Kepala Dinas')).'Kepala Dinas';
+				echo form_checkbox(array('name' => 'diajukan_kepada_sekretaris', 'value' => 'Sekretaris')).'Sekretaris'.'<br />';
+				echo form_checkbox(array('name' => 'diajukan_kepada_kepala_bidang_ll', 'value' => 'Kepala Bidang LL')).'Kepala Bidang LL'.'<br />';
+				echo form_checkbox(array('name' => 'diajukan_kepada_kepala_bidang_sarpra', 'value' => 'Kepala Bidang SARPRA')).'Kepala Bidang SARPRA'.'<br />';
+				echo form_checkbox(array('name' => 'diajukan_kepada_kepala_bidang_kominfo', 'value' => 'Kepala Bidang KOMINFO')).'Kepala Bidang KOMINFO'.'<br />';
+				echo form_checkbox(array('name' => 'diajukan_kepada_ka_uptd_pkb', 'value' => 'Ka. UPTD PKB')).'Ka. UPTD PKB';
 				?>
 			<tr><td width="20%">Instruksi</td><td><b><input type="text" name="instruksi" value="<?php if(isset($results)) echo $results->instruksi; ?>" style="width: 400px" class="form-control"></b></td></tr>	
 			<tr><td width="20%">File Surat (Scan)</td><td><b><input type="file" name="file_surat" class="form-control" style="width: 400px"></b></td></tr>
+			<tr><td width="20%">Tanggal Penyelesaian</td><td><b>
+				<input type="text" name="tanggal_penyelesaian" value="<?php if(isset($results)) echo $results->tanggal_penyelesaian; ?>" style="width: 400px" class="form-control" id="tanggal_penyelesaian">
+			</b></td></tr>
 			<tr>
 				<td colspan="2">
 				<br><button type="submit" class="btn btn-primary">Simpan</button>

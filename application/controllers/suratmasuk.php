@@ -77,7 +77,8 @@ class SuratMasuk extends CI_Controller {
             'nomor_surat' 			=> addslashes($this->input->post('nomor_surat')),
             'lampiran' 				=> addslashes($this->input->post('lampiran')),  
             'diajukan_kepada'	 	=> '',
-            'instruksi'			 	=> addslashes($this->input->post('instruksi'))
+            'instruksi'			 	=> addslashes($this->input->post('instruksi')),
+            'perihal'			 	=> addslashes($this->input->post('perihal'))
             );
 
 		$diajukan_kepada_sekretaris 	= addslashes($this->input->post('diajukan_kepada_sekretaris'));
@@ -85,9 +86,24 @@ class SuratMasuk extends CI_Controller {
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
 		}
 
-		$diajukan_kepada_kepala_dinas 	= addslashes($this->input->post('diajukan_kepada_kepala_dinas'));
-		if(isset($diajukan_kepada_kepala_dinas)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_dinas.'</p>';
+		$diajukan_kepada_kepala_bidang_ll 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_ll'));
+		if(isset($diajukan_kepada_kepala_bidang_ll)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_ll.'</p>';
+		}
+
+		$diajukan_kepada_kepala_bidang_sarpra 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_sarpra'));
+		if(isset($diajukan_kepada_kepala_bidang_sarpra)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_sarpra.'</p>';
+		}
+
+		$diajukan_kepada_kepala_bidang_kominfo 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_kominfo'));
+		if(isset($diajukan_kepada_kepala_bidang_kominfo)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_kominfo.'</p>';
+		}
+
+		$diajukan_kepada_ka_uptd_pkb 	= addslashes($this->input->post('diajukan_kepada_ka_uptd_pkb'));
+		if(isset($diajukan_kepada_ka_uptd_pkb)){
+			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
 		}
 
 		if ($this->upload->do_upload('file_surat')) {

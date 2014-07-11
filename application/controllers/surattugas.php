@@ -18,13 +18,26 @@ class SuratTugas extends CI_Controller {
 		}
 	}
 
+	function cetak() {
+		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
+		if( ! empty($surat_tugas_data)){
+			$surat_tugas_data['petugas'] 		= $this->input->post('petugas');
+			$surat_tugas_data['surat_masuk'] 	= $this->get_surat_masuk($surat_tugas_data['id_surat_masuk']);
+
+			$data['results'] = $surat_tugas_data;
+			$this->load->view('admin/surat_tugas', $data);
+		} else {
+			redirect('suratmasuk');
+		}
+	}
+
 	function form_process() {
 		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
 		if( ! empty($surat_tugas_data)){
-			$surat_tugas_data['nama_pengutus'] 		= addslashes($this->input->post('nama_pengutus'));
-			$surat_tugas_data['nip_pengutus'] 		= addslashes($this->input->post('nip_pengutus'));
-			$surat_tugas_data['jabatan_pengutus'] 	= addslashes($this->input->post('jabatan_pengutus'));
-			$surat_tugas_data['jumlah_petugas'] 	= addslashes($this->input->post('jumlah_petugas'));
+			$surat_tugas_data['pengutus']['nama'] 		= addslashes($this->input->post('nama_pengutus'));
+			$surat_tugas_data['pengutus']['nip']  		= addslashes($this->input->post('nip_pengutus'));
+			$surat_tugas_data['pengutus']['jabatan']  	= addslashes($this->input->post('jabatan_pengutus'));
+			$surat_tugas_data['jumlah_petugas'] 		= addslashes($this->input->post('jumlah_petugas'));
 			$this->session->set_flashdata('surat_tugas_data', $surat_tugas_data);
 
 			$data['page'] 			= "f_input_petugas";
@@ -35,12 +48,8 @@ class SuratTugas extends CI_Controller {
 		}
 	}
 
-	function cetak() {
-		$petugas = $this->input->post('petugas');
-		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
-		echo "<pre>";
-		print_r($surat_tugas_data);
-		print_r($petugas);
+	function get_surat_masuk($id) {
+		return $this->surat_masuk->select_by_id($id);
 	}
 
 	function inputpengutus() {

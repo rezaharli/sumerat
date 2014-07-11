@@ -17,19 +17,19 @@
 						<tr>
 							<td width="30%">Nama Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="petugas[nama][]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[<?php echo $i-1 ?>][nama]" />
 							</td>
 						</tr>
 						<tr>
 							<td width="30%">NIP Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="petugas[nip][]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[<?php echo $i-1 ?>][nip]" />
 							</td>
 						</tr>
 						<tr>
 							<td width="30%">Jabatan Utusan</td>
 							<td>
-								<input class="form-control" style="width: 200px" type="text" name="petugas[jabatan][]" />
+								<input class="form-control" style="width: 200px" type="text" name="petugas[<?php echo $i-1 ?>][jabatan]" />
 							</td>
 						</tr>
 					</table>

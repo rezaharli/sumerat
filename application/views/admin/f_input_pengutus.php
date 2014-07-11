@@ -38,7 +38,7 @@
 			<td colspan="2">
 				<br>
 				<button type="submit" class="btn btn-primary">Simpan</button>
-				<a href="<?=base_URL()?>" class="btn btn-success">Kembali</a>
+				<a href="<?=base_URL()?>suratmasuk" class="btn btn-success">Kembali</a>
 			</td>
 		</tr>
 	</table>

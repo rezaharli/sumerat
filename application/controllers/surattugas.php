@@ -20,15 +20,15 @@ class SuratTugas extends CI_Controller {
 
 	function cetak() {
 		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
-		// if( ! empty($surat_tugas_data)){
+		if( ! empty($surat_tugas_data)){
 			$surat_tugas_data['petugas'] 		= $this->input->post('petugas');
 			$surat_tugas_data['surat_masuk'] 	= $this->get_surat_masuk($surat_tugas_data['id_surat_masuk']);
 
 			$data['results'] = $surat_tugas_data;
 			$this->load->view('admin/surat_tugas', $data);
-		// } else {
-			// redirect('suratmasuk');
-		// }
+		} else {
+			redirect('suratmasuk');
+		}
 	}
 
 	function form_process() {

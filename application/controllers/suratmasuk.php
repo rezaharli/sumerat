@@ -12,7 +12,6 @@ class SuratMasuk extends CI_Controller {
 	
 	function index() {
 		$data['page']		= "surat_masuk";
-		
 		$this->load->view('admin/aaa', $data);
 	}
 
@@ -39,8 +38,25 @@ class SuratMasuk extends CI_Controller {
 		redirect('suratmasuk');
 	}
 
+	function delete_file(){
+		$id	= $this->uri->segment(3);
+		$this->do_delete_file($id);
+        redirect('suratmasuk');
+	}
+
 	function do_add($data){
 		$this->surat_masuk->add($data);
+	}
+
+	function do_delete_file($id){
+		$surat_masuk = $this->surat_masuk->select_by_id($id);
+		$file = "./upload/surat_masuk/".$surat_masuk->file;
+		if(is_file($file)){
+        	if(unlink($file)){
+        		$data['file'] = "";
+        		$this->do_edit($id, $data);
+        	}
+        }
 	}
 
 	function do_edit($id, $data){
@@ -55,14 +71,6 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function form_process(){
-		$config['upload_path'] 		= './upload/surat_masuk';
-		$config['allowed_types'] 	= '*';
-		$config['max_size']			= '2000';
-		$config['max_width']  		= '3000';
-		$config['max_height'] 		= '3000';
-
-		$this->load->library('upload', $config);
-
 		$id	= $this->input->post('idp');
 
 		$data = array(
@@ -105,7 +113,19 @@ class SuratMasuk extends CI_Controller {
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
 		}
 
+		$config['upload_path'] 		= './upload/surat_masuk';
+		$config['allowed_types'] 	= '*';
+		$config['max_size']			= '2000';
+		$config['max_width']  		= '3000';
+		$config['max_height'] 		= '3000';
+		$config['file_name'] 		= ellipsize($_FILES['file_surat']['name'], 32, .5);
+
+		$this->load->library('upload', $config);
+
 		if ($this->upload->do_upload('file_surat')) {
+			if($this->uri->segment(3) == "edit"){
+				$this->do_delete_file($id);
+			}
 			$upload_data = $this->upload->data();
 			$data['file'] = $upload_data['file_name'];
 		}

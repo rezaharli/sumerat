@@ -65,7 +65,12 @@
 				if(results.length > 0){
 					try{
 						var items=[]; 	
-						$.each(results, function(i,result){								
+						$.each(results, function(i,result){
+							if(result.file != ""){
+								result.file =
+								"<br /><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_masuk/" + result.file + "\" target=\"_blank\">" + result.file + "</a>" + 
+								"<br /><a href=\"<?php echo base_URL()?>suratmasuk/delete_file/" + result.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete File</a><br />";
+							}
 						    items.push(
 						    	$('<tr/>').html(
 						    		"<td>" + result.indeks + "</td>" +
@@ -73,9 +78,7 @@
 									"<td>" + result.nomor_urut + "</td>" +
 									"<td>" + result.tanggal_penyelesaian + "</td>" +
 									"<td>" + result.perihal + "</td>" +
-									"<td>" + result.isi_ringkas + 
-									"<br><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_masuk/" + result.file + "\" target=\"_blank\">" + result.file + "</a>" + 
-									"</td>" +
+									"<td>" + result.isi_ringkas + result.file + "</td>" +
 									"<td>" + result.asal + "</td>" +
 									"<td>" + result.tanggal_surat + "</td>" +
 									"<td>" + result.nomor_surat + "</td>" +
@@ -90,7 +93,7 @@
 											"<a href=\"<?php echo base_URL()?>surattugas/index/" + result.id + "\" class=\"btn btn-success btn-sm\" title=\"Surat Tugas\"><i class=\"icon-print icon-white\"> </i> Surat Tugas</a>" +
 										"</div>" +	
 									"</td>"
-						    		));
+									));
 						});	
 						$('#finalResult').append.apply($('#finalResult'), items);
 					}catch(e) {		

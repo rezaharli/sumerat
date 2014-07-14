@@ -11,7 +11,6 @@ class SuratKeluar extends CI_Controller {
 	}
 	
 	function index() {
-		$data["results"] 	= $this->surat_keluar->select();
 		$data['page']		= "surat_keluar";
 		
 		$this->load->view('admin/aaa', $data);

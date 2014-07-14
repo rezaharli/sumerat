@@ -58,30 +58,33 @@
 			success: 
 			function(response){
 				$('#finalResult').html("");
-				var obj = JSON.parse(response);
-				if(obj.length > 0){
+				var results = JSON.parse(response);
+				if(results.length > 0){
 					try{
 						var items=[]; 	
-						$.each(obj, function(i,val){								
+						$.each(results, function(i,result){
+							if(result.file != ""){
+								result.file =
+								"<br /><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_keluar/" + result.file + "\" target=\"_blank\">" + result.file + "</a>" + 
+								"<br /><a href=\"<?php echo base_URL()?>suratkeluar/delete_file/" + result.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete File</a><br />";
+							}								
 						    items.push(
 						    	$('<tr/>').html(
-						    		"<td>" + val.indeks + "</td>" +
-									"<td>" + val.kode + "</td>" +
-									"<td>" + val.nomor_urut + "</td>" +
-									"<td>" + val.isi_ringkas + 
-									"<br><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_keluar/" + val.file + "\" target=\"_blank\">" + val.file + "</a>" + 
-									"</td>" +
-									"<td>" + val.kepada + "</td>" +
-									"<td>" + val.pengolah + "</td>" +
-									"<td>" + val.tanggal_surat + "</td>" +
-									"<td>" + val.lampiran + "</td>" +
-									"<td>" + val.catatan + "</td>" +
-									"<td>" + val.dinas_instansi + "</td>" +
+						    		"<td>" + result.indeks + "</td>" +
+									"<td>" + result.kode + "</td>" +
+									"<td>" + result.nomor_urut + "</td>" +
+									"<td>" + result.isi_ringkas + result.file + "</td>" +
+									"<td>" + result.kepada + "</td>" +
+									"<td>" + result.pengolah + "</td>" +
+									"<td>" + result.tanggal_surat + "</td>" +
+									"<td>" + result.lampiran + "</td>" +
+									"<td>" + result.catatan + "</td>" +
+									"<td>" + result.dinas_instansi + "</td>" +
 									"<td class=\"ctr\">" +
 										"<div class=\"btn-group\">" +
-											"<a href=\"<?php echo base_URL()?>suratkeluar/edit/" + val.id + "\" class=\"btn btn-success btn-sm\" title=\"Edit Data\"><i class=\"icon-edit icon-white\"> </i> Edit</a>" +
-											"<a href=\"<?php echo base_URL()?>suratkeluar/delete/" + val.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a>" +
-											"<a href=\"<?php echo base_URL()?>suratkeluar/cetak/" + val.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
+											"<a href=\"<?php echo base_URL()?>suratkeluar/edit/" + result.id + "\" class=\"btn btn-success btn-sm\" title=\"Edit Data\"><i class=\"icon-edit icon-white\"> </i> Edit</a>" +
+											"<a href=\"<?php echo base_URL()?>suratkeluar/delete/" + result.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a>" +
+											"<a href=\"<?php echo base_URL()?>suratkeluar/cetak/" + result.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
 										"</div>" +	
 									"</td>"
 						    		));

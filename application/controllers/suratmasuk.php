@@ -115,9 +115,6 @@ class SuratMasuk extends CI_Controller {
 
 		$config['upload_path'] 		= './upload/surat_masuk';
 		$config['allowed_types'] 	= '*';
-		$config['max_size']			= '2000';
-		$config['max_width']  		= '3000';
-		$config['max_height'] 		= '3000';
 		$config['file_name'] 		= ellipsize($_FILES['file_surat']['name'], 32, .5);
 
 		$this->load->library('upload', $config);

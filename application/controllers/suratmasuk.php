@@ -82,36 +82,35 @@ class SuratMasuk extends CI_Controller {
             'asal' 					=> $this->input->post('asal'),
             'tanggal_surat'			=> $this->input->post('tanggal_surat'),
             'nomor_surat' 			=> $this->input->post('nomor_surat'),
-            'lampiran' 				=> $this->input->post('lampiran'),  
-            'diajukan_kepada'	 	=> '',
+            'lampiran' 				=> $this->input->post('lampiran'),
             'instruksi'			 	=> $this->input->post('instruksi'),
             'perihal'			 	=> $this->input->post('perihal')
             );
 
-		$diajukan_kepada_sekretaris 	= $this->input->post('diajukan_kepada_sekretaris');
-		if(isset($diajukan_kepada_sekretaris)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
-		}
+		// $diajukan_kepada_sekretaris 	= $this->input->post('diajukan_kepada_sekretaris');
+		// if(isset($diajukan_kepada_sekretaris)){
+		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
+		// }
 
-		$diajukan_kepada_kepala_bidang_ll 	= $this->input->post('diajukan_kepada_kepala_bidang_ll');
-		if(isset($diajukan_kepada_kepala_bidang_ll)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_ll.'</p>';
-		}
+		// $diajukan_kepada_kepala_bidang_ll 	= $this->input->post('diajukan_kepada_kepala_bidang_ll');
+		// if(isset($diajukan_kepada_kepala_bidang_ll)){
+		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_ll.'</p>';
+		// }
 
-		$diajukan_kepada_kepala_bidang_sarpra 	= $this->input->post('diajukan_kepada_kepala_bidang_sarpra');
-		if(isset($diajukan_kepada_kepala_bidang_sarpra)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_sarpra.'</p>';
-		}
+		// $diajukan_kepada_kepala_bidang_sarpra 	= $this->input->post('diajukan_kepada_kepala_bidang_sarpra');
+		// if(isset($diajukan_kepada_kepala_bidang_sarpra)){
+		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_sarpra.'</p>';
+		// }
 
-		$diajukan_kepada_kepala_bidang_kominfo 	= $this->input->post('diajukan_kepada_kepala_bidang_kominfo');
-		if(isset($diajukan_kepada_kepala_bidang_kominfo)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_kominfo.'</p>';
-		}
+		// $diajukan_kepada_kepala_bidang_kominfo 	= $this->input->post('diajukan_kepada_kepala_bidang_kominfo');
+		// if(isset($diajukan_kepada_kepala_bidang_kominfo)){
+		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_kominfo.'</p>';
+		// }
 
-		$diajukan_kepada_ka_uptd_pkb 	= $this->input->post('diajukan_kepada_ka_uptd_pkb');
-		if(isset($diajukan_kepada_ka_uptd_pkb)){
-			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
-		}
+		// $diajukan_kepada_ka_uptd_pkb 	= $this->input->post('diajukan_kepada_ka_uptd_pkb');
+		// if(isset($diajukan_kepada_ka_uptd_pkb)){
+		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
+		// }
 
 		$config['upload_path'] 		= './upload/surat_masuk';
 		$config['allowed_types'] 	= '*';

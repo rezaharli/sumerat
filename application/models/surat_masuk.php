@@ -22,11 +22,11 @@ class Surat_Masuk extends CI_Model {
             $this->db->or_like('tanggal_surat', $key);
             $this->db->or_like('nomor_surat', $key);
             $this->db->or_like('lampiran', $key);
-            $this->db->or_like('diajukan_kepada', $key);
             $this->db->or_like('instruksi', $key);
             $this->db->or_like('perihal', $key);
         }
-        $query = $this->db->get($this->table);
+        $this->db->from($this->table);
+        $query = $this->db->get();
         return ($query->num_rows() > 0)  ? $query->result() : FALSE;
     }
 

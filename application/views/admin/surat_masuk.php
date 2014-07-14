@@ -49,11 +49,10 @@
 	$(document).ready(function(){
 		doSearch();
 	  	$("#search").keyup(function(){
-			if($("#search").val().length >= 0){
-				doSearch($("#search").val());
-			}
+			doSearch($("#search").val());
 	  	});
 	});
+
 	function doSearch(searchKey){
 		$.ajax({
 			type: "post",
@@ -74,8 +73,7 @@
 									"<td>" + result.nomor_urut + "</td>" +
 									"<td>" + result.tanggal_penyelesaian + "</td>" +
 									"<td>" + result.perihal + "</td>" +
-									"<td>" + 
-									result.isi_ringkas + 
+									"<td>" + result.isi_ringkas + 
 									"<br><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_masuk/" + result.file + "\" target=\"_blank\">" + result.file + "</a>" + 
 									"</td>" +
 									"<td>" + result.asal + "</td>" +

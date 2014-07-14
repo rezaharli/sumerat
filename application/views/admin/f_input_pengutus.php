@@ -29,6 +29,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="20%">Nomor surat tugas</td>
+			<td>
+				<input class="form-control" style="width: 200px" type="text" required name="nomor_surat_tugas" />
+			</td>
+		</tr>
+		<tr>
 			<td width="20%">Jumlah petugas yang ingin diutus</td>
 			<td>
 				<input class="form-control" style="width: 200px" type="text" required name="jumlah_petugas" />

@@ -28,7 +28,7 @@
 				<tr>
 					<td align="center" colspan="3">
 						<b>SURAT TUGAS</b><br />
-						Nomor : <b>094/</b>
+						Nomor : <b><?php echo $results['nomor_surat_tugas'] ?></b>
 					</td>
 				</tr>
 				<tr>

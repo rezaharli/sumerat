@@ -34,10 +34,11 @@ class SuratTugas extends CI_Controller {
 	function form_process() {
 		$surat_tugas_data = $this->session->flashdata('surat_tugas_data');
 		if( ! empty($surat_tugas_data)){
-			$surat_tugas_data['pengutus']['nama'] 		= addslashes($this->input->post('nama_pengutus'));
-			$surat_tugas_data['pengutus']['nip']  		= addslashes($this->input->post('nip_pengutus'));
-			$surat_tugas_data['pengutus']['jabatan']  	= addslashes($this->input->post('jabatan_pengutus'));
-			$surat_tugas_data['jumlah_petugas'] 		= addslashes($this->input->post('jumlah_petugas'));
+			$surat_tugas_data['pengutus']['nama'] 		= $this->input->post('nama_pengutus');
+			$surat_tugas_data['pengutus']['nip']  		= $this->input->post('nip_pengutus');
+			$surat_tugas_data['pengutus']['jabatan']  	= $this->input->post('jabatan_pengutus');
+			$surat_tugas_data['jumlah_petugas'] 		= $this->input->post('jumlah_petugas');
+			$surat_tugas_data['nomor_surat_tugas'] 		= $this->input->post('nomor_surat_tugas');
 			$this->session->set_flashdata('surat_tugas_data', $surat_tugas_data);
 
 			$data['page'] 			= "f_input_petugas";

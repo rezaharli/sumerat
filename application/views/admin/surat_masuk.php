@@ -101,7 +101,7 @@
 					}		
 				}else{
 					$('#finalResult').html($('<tr/>').html(
-						"<td colspan='12' align='center'>Data tidak ditemukan</td>"
+						"<td colspan='13' align='center'>Data tidak ditemukan</td>"
 						)
 					);		
 				}		

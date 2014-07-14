@@ -34,7 +34,7 @@
 				<tr>
 					<td>Pertimbangan/Dasar</td>
 					<td>:</td>
-					<td>Surat dari <?php echo $results['surat_masuk']->asal; ?>, nomor : <?php echo $results['surat_masuk']->nomor_surat; ?>, tanggal <?php tgl_jam_sql($results['surat_masuk']->tanggal_surat); ?><?php $results['surat_masuk']->isi_ringkas; ?></td>
+					<td>Surat dari <?php echo $results['surat_masuk']->asal; ?>, nomor : <?php echo $results['surat_masuk']->nomor_surat; ?>, tanggal <?php echo tgl_jam_sql($results['surat_masuk']->tanggal_surat); ?> perihal <?php echo $results['surat_masuk']->perihal; ?></td>
 				</tr>
 				<tr>
 					<td colspan="3">

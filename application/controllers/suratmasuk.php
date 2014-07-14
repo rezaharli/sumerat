@@ -11,7 +11,6 @@ class SuratMasuk extends CI_Controller {
 	}
 	
 	function index() {
-		$data["results"] 	= $this->surat_masuk->select();
 		$data['page']		= "surat_masuk";
 		
 		$this->load->view('admin/aaa', $data);
@@ -64,44 +63,44 @@ class SuratMasuk extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		$id	= addslashes($this->input->post('idp'));
+		$id	= $this->input->post('idp');
 
 		$data = array(
-            'indeks' 				=> addslashes($this->input->post('indeks')),
-			'kode' 					=> addslashes($this->input->post('kode')),
-            'nomor_urut' 			=> addslashes($this->input->post('nomor_urut')),
-            'tanggal_penyelesaian' 	=> addslashes($this->input->post('tanggal_penyelesaian')),
-            'isi_ringkas'			=> addslashes($this->input->post('isi_ringkas')), 
-            'asal' 					=> addslashes($this->input->post('asal')),
-            'tanggal_surat'			=> addslashes($this->input->post('tanggal_surat')),
-            'nomor_surat' 			=> addslashes($this->input->post('nomor_surat')),
-            'lampiran' 				=> addslashes($this->input->post('lampiran')),  
+            'indeks' 				=> $this->input->post('indeks'),
+			'kode' 					=> $this->input->post('kode'),
+            'nomor_urut' 			=> $this->input->post('nomor_urut'),
+            'tanggal_penyelesaian' 	=> $this->input->post('tanggal_penyelesaian'),
+            'isi_ringkas'			=> $this->input->post('isi_ringkas'), 
+            'asal' 					=> $this->input->post('asal'),
+            'tanggal_surat'			=> $this->input->post('tanggal_surat'),
+            'nomor_surat' 			=> $this->input->post('nomor_surat'),
+            'lampiran' 				=> $this->input->post('lampiran'),  
             'diajukan_kepada'	 	=> '',
-            'instruksi'			 	=> addslashes($this->input->post('instruksi')),
-            'perihal'			 	=> addslashes($this->input->post('perihal'))
+            'instruksi'			 	=> $this->input->post('instruksi'),
+            'perihal'			 	=> $this->input->post('perihal')
             );
 
-		$diajukan_kepada_sekretaris 	= addslashes($this->input->post('diajukan_kepada_sekretaris'));
+		$diajukan_kepada_sekretaris 	= $this->input->post('diajukan_kepada_sekretaris');
 		if(isset($diajukan_kepada_sekretaris)){
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
 		}
 
-		$diajukan_kepada_kepala_bidang_ll 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_ll'));
+		$diajukan_kepada_kepala_bidang_ll 	= $this->input->post('diajukan_kepada_kepala_bidang_ll');
 		if(isset($diajukan_kepada_kepala_bidang_ll)){
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_ll.'</p>';
 		}
 
-		$diajukan_kepada_kepala_bidang_sarpra 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_sarpra'));
+		$diajukan_kepada_kepala_bidang_sarpra 	= $this->input->post('diajukan_kepada_kepala_bidang_sarpra');
 		if(isset($diajukan_kepada_kepala_bidang_sarpra)){
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_sarpra.'</p>';
 		}
 
-		$diajukan_kepada_kepala_bidang_kominfo 	= addslashes($this->input->post('diajukan_kepada_kepala_bidang_kominfo'));
+		$diajukan_kepada_kepala_bidang_kominfo 	= $this->input->post('diajukan_kepada_kepala_bidang_kominfo');
 		if(isset($diajukan_kepada_kepala_bidang_kominfo)){
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_kominfo.'</p>';
 		}
 
-		$diajukan_kepada_ka_uptd_pkb 	= addslashes($this->input->post('diajukan_kepada_ka_uptd_pkb'));
+		$diajukan_kepada_ka_uptd_pkb 	= $this->input->post('diajukan_kepada_ka_uptd_pkb');
 		if(isset($diajukan_kepada_ka_uptd_pkb)){
 			$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
 		}

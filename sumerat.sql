@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2014 at 09:04 AM
+-- Generation Time: Jul 14, 2014 at 09:30 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `sumerat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diajukan_kepada`
+--
+
+CREATE TABLE IF NOT EXISTS `diajukan_kepada` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_surat_masuk` int(10) NOT NULL,
+  `diajukan_kepada` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `diajukan_kepada`
+--
+
+INSERT INTO `diajukan_kepada` (`id`, `id_surat_masuk`, `diajukan_kepada`) VALUES
+(1, 3, 'Sekretaris'),
+(2, 4, 'aku'),
+(3, 4, 'kamu');
 
 -- --------------------------------------------------------
 
@@ -978,11 +1000,18 @@ CREATE TABLE IF NOT EXISTS `surat_keluar` (
   `pengolah` varchar(50) NOT NULL,
   `tanggal_surat` date NOT NULL,
   `lampiran` varchar(5) NOT NULL,
-  `catatan` varchar(200) DEFAULT NULL,
+  `catatan` varchar(200) NOT NULL,
   `dinas_instansi` varchar(50) NOT NULL,
-  `file` varchar(50) DEFAULT NULL,
+  `file` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `surat_keluar`
+--
+
+INSERT INTO `surat_keluar` (`id`, `indeks`, `kode`, `nomor_urut`, `isi_ringkas`, `kepada`, `pengolah`, `tanggal_surat`, `lampiran`, `catatan`, `dinas_instansi`, `file`) VALUES
+(2, 'indeks', 'kode', 'nomor u', 'isi', 'kepada', 'pengolah', '2014-07-14', 'lampi', 'catatan', 'dinas', '');
 
 -- --------------------------------------------------------
 
@@ -994,7 +1023,7 @@ CREATE TABLE IF NOT EXISTS `surat_masuk` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `indeks` varchar(20) NOT NULL,
   `kode` varchar(8) NOT NULL,
-  `nomor_urut` varchar(7) NOT NULL,
+  `nomor_urut` varchar(10) NOT NULL,
   `tanggal_penyelesaian` date DEFAULT NULL,
   `perihal` varchar(200) NOT NULL,
   `isi_ringkas` varchar(150) NOT NULL,
@@ -1003,18 +1032,18 @@ CREATE TABLE IF NOT EXISTS `surat_masuk` (
   `nomor_surat` varchar(25) NOT NULL,
   `lampiran` varchar(5) NOT NULL,
   `file` varchar(50) NOT NULL,
-  `diajukan_kepada` varchar(200) DEFAULT NULL,
   `instruksi` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `surat_masuk`
 --
 
-INSERT INTO `surat_masuk` (`id`, `indeks`, `kode`, `nomor_urut`, `tanggal_penyelesaian`, `perihal`, `isi_ringkas`, `asal`, `tanggal_surat`, `nomor_surat`, `lampiran`, `file`, `diajukan_kepada`, `instruksi`) VALUES
-(1, '1', '1', '1', '2014-07-11', 'asdf', '1', '1', '2014-07-11', '1', '1', '', '<p>Sekretaris</p><p>Kepala Bidang LL</p><p>Kepala Bidang SARPRA</p><p>Kepala Bidang KOMINFO</p><p>Ka. UPTD PKB</p>', '1'),
-(2, 'indeks', 'kode', 'nomor u', '2014-07-01', '', 'isi ringkas', 'asal surat', '2014-07-11', 'nomor surat', 'lampi', '', '<p>Sekretaris</p><p>Kepala Dinas</p>', 'instruksi');
+INSERT INTO `surat_masuk` (`id`, `indeks`, `kode`, `nomor_urut`, `tanggal_penyelesaian`, `perihal`, `isi_ringkas`, `asal`, `tanggal_surat`, `nomor_surat`, `lampiran`, `file`, `instruksi`) VALUES
+(3, 'indeks', 'kode', 'nomor urut', '2014-07-14', 'perihal', 'isi', 'asal', '2014-07-14', 'nomor', 'lampi', '', 'instruksi'),
+(4, '1', '001', '1', '2014-07-14', '1', '1', '1', '2014-07-14', '1', '1', '', '1'),
+(5, '1', '1', '1', '2014-07-14', '1', '1', '1', '2014-07-14', '1', '1', '', '1');
 
 -- --------------------------------------------------------
 

@@ -11,19 +11,9 @@ class Surat_Masuk extends CI_Model {
         $this->db->delete($this->table, array('id' => $id));
     }
 
-    function select($key = null) {
-        if( ! empty($key)) {
-            $this->db->like('indeks', $key);
-            $this->db->or_like('kode', $key);
-            $this->db->or_like('nomor_urut', $key);
-            $this->db->or_like('tanggal_penyelesaian', $key);
-            $this->db->or_like('isi_ringkas', $key);
-            $this->db->or_like('asal', $key);
-            $this->db->or_like('tanggal_surat', $key);
-            $this->db->or_like('nomor_surat', $key);
-            $this->db->or_like('lampiran', $key);
-            $this->db->or_like('instruksi', $key);
-            $this->db->or_like('perihal', $key);
+    function select($key = null, $berdasarkan = null) {
+        if(( ! empty($key)) && ( ! empty($berdasarkan))) {
+            $this->db->like($berdasarkan, $key);
         }
         $this->db->from($this->table);
         $query = $this->db->get();
@@ -34,7 +24,7 @@ class Surat_Masuk extends CI_Model {
         $this->db->limit(1);
         $this->db->order_by("id", "desc"); 
         $query = $this->db->get($this->table);
-        return $query->row();
+        return $query->row()->id;
     }
 
     function select_by_id($id) {

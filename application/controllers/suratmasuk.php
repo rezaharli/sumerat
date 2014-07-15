@@ -22,26 +22,31 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function cari() {
-		$key = $this->input->post('search');
-		$surat_masuk_results = array();
-		$surat_masuk_results = $this->surat_masuk->select($key);
-		
-		$diajukan_kepada_s = $this->diajukan_kepada->select($key);
-		foreach ($diajukan_kepada_s as $diajukan_kepada) {
-			$surat_masuk_exist = FALSE;
-			if( ! empty($surat_masuk_results)){
-				foreach ($surat_masuk_results as $surat_masuk_result) {
-					if($surat_masuk_result->id == $diajukan_kepada->id_surat_masuk){
-						$surat_masuk_exist = TRUE;
+		$key 			= $this->input->post('search');
+		$berdasarkan 	= $this->input->post('berdasarkan');
+		if($berdasarkan != 'diajukan_kepada'){
+			$surat_masuk_results = array();
+			$surat_masuk_results = $this->surat_masuk->select($key, $berdasarkan);
+		} else {
+			$diajukan_kepada_s = $this->diajukan_kepada->select($key);
+			if( ! empty($diajukan_kepada_s)){
+				foreach ($diajukan_kepada_s as $diajukan_kepada) {
+					$surat_masuk_exist = FALSE;
+					if( ! empty($surat_masuk_results)){
+						foreach ($surat_masuk_results as $surat_masuk_result) {
+							if($surat_masuk_result->id == $diajukan_kepada->id_surat_masuk){
+								$surat_masuk_exist = TRUE;
+							}
+						}
+					}
+					if( ! $surat_masuk_exist){
+						$surat_masuk_result = $this->surat_masuk->select_by_id($diajukan_kepada->id_surat_masuk);
+						$surat_masuk_results[] = $surat_masuk_result;
 					}
 				}
 			}
-			if( ! $surat_masuk_exist){
-				$surat_masuk_result = $this->surat_masuk->select_by_id($diajukan_kepada->id_surat_masuk);
-				$surat_masuk_results[] = $surat_masuk_result;
-			}
 		}
-		
+
 		if( ! empty($surat_masuk_results)){
 			foreach ($surat_masuk_results as $surat_masuk_result) {
 				$surat_masuk_result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($surat_masuk_result->id);

@@ -21,8 +21,9 @@ class SuratKeluar extends CI_Controller {
 	}
 
 	function cari() {
-		$key		= $this->input->post('search');
-		$results 	= $this->surat_keluar->select($key);
+		$key			= $this->input->post('search');
+		$berdasarkan	= $this->input->post('berdasarkan');
+		$results = $this->surat_keluar->select($key, $berdasarkan);
 		echo json_encode ($results);
 	}
 

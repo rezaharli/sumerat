@@ -11,18 +11,9 @@ class Surat_Keluar extends CI_Model {
         $this->db->delete($this->table, array('id' => $id));
     }
 
-    function select($key = null) {
-        if( ! empty($key)) {
-            $this->db->like('indeks', $key);
-            $this->db->or_like('kode', $key);
-            $this->db->or_like('nomor_urut', $key);
-            $this->db->or_like('isi_ringkas', $key);
-            $this->db->or_like('kepada', $key);
-            $this->db->or_like('pengolah', $key);
-            $this->db->or_like('tanggal_surat', $key);
-            $this->db->or_like('lampiran', $key);
-            $this->db->or_like('catatan', $key);
-            $this->db->or_like('dinas_instansi', $key);
+    function select($key = null, $berdasarkan = null) {
+        if(( ! empty($key)) && ( ! empty($berdasarkan))) {
+            $this->db->like($berdasarkan, $key);
         }
         $query = $this->db->get($this->table);
         return ($query->num_rows() > 0)  ? $query->result() : FALSE;

@@ -12,6 +12,24 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<form class="navbar-form navbar-left" method="post" action="#">
+								<?php 
+								$options = array(
+								      	'indeks' => 'indeks',
+								      	'kode' => 'kode',
+								      	'nomor_urut' => 'no urut',
+								      	'tanggal_penyelesaian' => 'tanggal penyelesaian',
+								      	'perihal' => 'Perihal',
+								      	'isi_ringkas' => 'isi ringkas',
+								      	'asal' => 'asal surat',
+								      	'tanggal_surat' => 'tanggal surat',
+								      	'nomor_surat' => 'nomor surat',
+								      	'lampiran' => 'lampiran',
+								      	'diajukan_kepada' => 'diajukan kepada',
+								      	'instruksi' => 'instruksi'
+								    );
+
+								echo form_dropdown('berdasarkan', $options, '', 'id="berdasarkan" class="form-control" style="width: 100px"');
+								?>
 								<input type="text" class="form-control" name="cari" id="search" style="width: 200px" placeholder="Kata kunci pencarian ..." />
 							</form>
 						</ul>
@@ -54,10 +72,11 @@
 	});
 
 	function doSearch(searchKey){
+		var berdasarkan = $("#berdasarkan").val();
 		$.ajax({
 			type: "post",
 			url: "<?php echo base_URL()?>suratmasuk/cari",
-			data: { search : searchKey },
+			data: { search : searchKey, berdasarkan : berdasarkan },
 			success: 
 			function(response){
 				$('#finalResult').html("");

@@ -71,6 +71,15 @@
 								"<br /><b>File : </b><i><a href=\"<?php echo base_URL()?>upload/surat_masuk/" + result.file + "\" target=\"_blank\">" + result.file + "</a>" + 
 								"<br /><a href=\"<?php echo base_URL()?>suratmasuk/delete_file/" + result.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete File</a><br />";
 							}
+							result.diajukan_kepada = "";
+							if(result.diajukan_kepada_s) {
+								$.each(result.diajukan_kepada_s, function(i, diajukan_kepada){
+									if(i != 0){
+										result.diajukan_kepada += ", ";
+									}
+									result.diajukan_kepada += diajukan_kepada.tujuan;
+								});
+							}
 						    items.push(
 						    	$('<tr/>').html(
 						    		"<td>" + result.indeks + "</td>" +

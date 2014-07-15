@@ -8,6 +8,7 @@ class SuratMasuk extends CI_Controller {
 			redirect('login');
 		}
 		$this->load->model('surat_masuk');
+		$this->load->model('diajukan_kepada');
 	}
 	
 	function index() {
@@ -21,8 +22,11 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function cari() {
-		$key		= $this->input->post('search');
-		$results 	= $this->surat_masuk->select($key);
+		$key = $this->input->post('search');
+		$results = $this->surat_masuk->select($key);
+		foreach ($results as $result) {
+			$result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($result->id);
+		}
 		echo json_encode ($results);
 	}
 

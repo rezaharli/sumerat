@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2014 at 08:33 AM
+-- Generation Time: Jul 15, 2014 at 09:31 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -31,20 +31,7 @@ CREATE TABLE IF NOT EXISTS `diajukan_kepada` (
   `id_surat_masuk` int(10) NOT NULL,
   `tujuan` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
-
---
--- Dumping data for table `diajukan_kepada`
---
-
-INSERT INTO `diajukan_kepada` (`id`, `id_surat_masuk`, `tujuan`) VALUES
-(18, 3, 'Sekretaris'),
-(19, 3, 'Kepala Bidang LL'),
-(20, 3, 'Kepala Bidang SARPRA'),
-(21, 3, 'Kepala Bidang KOMINFO'),
-(22, 3, 'Ka. UPTD PKB'),
-(23, 3, 'bla bla bla'),
-(25, 4, 'Sekretaris');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 -- --------------------------------------------------------
 
@@ -1010,13 +997,6 @@ CREATE TABLE IF NOT EXISTS `surat_keluar` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `surat_keluar`
---
-
-INSERT INTO `surat_keluar` (`id`, `indeks`, `kode`, `nomor_urut`, `isi_ringkas`, `kepada`, `pengolah`, `tanggal_surat`, `lampiran`, `catatan`, `dinas_instansi`, `file`) VALUES
-(2, 'indeks', 'kode', 'nomor u', 'isi', 'kepada', 'pengolah', '2014-07-14', 'lampi', 'catatan', 'dinas', '');
-
 -- --------------------------------------------------------
 
 --
@@ -1038,16 +1018,7 @@ CREATE TABLE IF NOT EXISTS `surat_masuk` (
   `file` varchar(50) NOT NULL,
   `instruksi` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `surat_masuk`
---
-
-INSERT INTO `surat_masuk` (`id`, `indeks`, `kode`, `nomor_urut`, `tanggal_penyelesaian`, `perihal`, `isi_ringkas`, `asal`, `tanggal_surat`, `nomor_surat`, `lampiran`, `file`, `instruksi`) VALUES
-(3, 'indeks', 'kode', 'nomor urut', '2014-07-14', 'perihal', 'isi', 'asal', '2014-07-14', 'nomor', 'lampi', '', 'instruksi'),
-(4, '1', '001', '1', '2014-07-14', '1', '1', '1', '2014-07-14', '1', '1', '', '1'),
-(5, '1', '1', '1', '2014-07-14', '1', '1', '1', '2014-07-14', '1', '1', '', '1');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 

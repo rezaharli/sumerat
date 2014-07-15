@@ -12,7 +12,7 @@ class SuratMasuk extends CI_Controller {
 	}
 	
 	function index() {
-		$data['page']		= "surat_masuk";
+		$data['page'] = "surat_masuk";
 		$this->load->view('admin/aaa', $data);
 	}
 
@@ -23,11 +23,31 @@ class SuratMasuk extends CI_Controller {
 
 	function cari() {
 		$key = $this->input->post('search');
-		$results = $this->surat_masuk->select($key);
-		foreach ($results as $result) {
-			$result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($result->id);
+		$surat_masuk_results = array();
+		$surat_masuk_results = $this->surat_masuk->select($key);
+		
+		$diajukan_kepada_s = $this->diajukan_kepada->select($key);
+		foreach ($diajukan_kepada_s as $diajukan_kepada) {
+			$surat_masuk_exist = FALSE;
+			if( ! empty($surat_masuk_results)){
+				foreach ($surat_masuk_results as $surat_masuk_result) {
+					if($surat_masuk_result->id == $diajukan_kepada->id_surat_masuk){
+						$surat_masuk_exist = TRUE;
+					}
+				}
+			}
+			if( ! $surat_masuk_exist){
+				$surat_masuk_result = $this->surat_masuk->select_by_id($diajukan_kepada->id_surat_masuk);
+				$surat_masuk_results[] = $surat_masuk_result;
+			}
 		}
-		echo json_encode ($results);
+		
+		if( ! empty($surat_masuk_results)){
+			foreach ($surat_masuk_results as $surat_masuk_result) {
+				$surat_masuk_result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($surat_masuk_result->id);
+			}
+		}
+		echo json_encode ($surat_masuk_results);
 	}
 
 	function cetak() {

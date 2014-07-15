@@ -81,10 +81,10 @@
 									"<td>" + result.catatan + "</td>" +
 									"<td>" + result.dinas_instansi + "</td>" +
 									"<td class=\"ctr\">" +
-										"<div class=\"btn-group\">" +
+										"<div>" +
 											"<a href=\"<?php echo base_URL()?>suratkeluar/edit/" + result.id + "\" class=\"btn btn-success btn-sm\" title=\"Edit Data\"><i class=\"icon-edit icon-white\"> </i> Edit</a>" +
 											"<a href=\"<?php echo base_URL()?>suratkeluar/delete/" + result.id + "\" class=\"btn btn-warning btn-sm\" title=\"Hapus Data\" onclick=\"return confirm('Anda Yakin..?')\"><i class=\"icon-trash icon-remove\">  </i> Delete</a>" +
-											"<a href=\"<?php echo base_URL()?>suratkeluar/cetak/" + result.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Disposisi\"><i class=\"icon-print icon-white\"> </i> Cetak</a>" +
+											"<a href=\"<?php echo base_URL()?>suratkeluar/cetak/" + result.id + "\" class=\"btn btn-info btn-sm\" target=\"_blank\" title=\"Cetak Surat Keluar\"><i class=\"icon-print icon-white\"> </i> Surat Keluar</a>" +
 										"</div>" +	
 									"</td>"
 						    		));

@@ -23,10 +23,10 @@
 								      	'tanggal_surat' => 'tanggal surat',
 								      	'lampiran' => 'lampiran',
 								      	'catatan' => 'catatan',
-								      	'dinas_instansi' => 'dinas_instansi'
+								      	'dinas_instansi' => 'dinas / instansi'
 								    );
 
-								echo form_dropdown('berdasarkan', $options, '', 'id="berdasarkan" class="form-control" style="width: 100px"');
+								echo form_dropdown('berdasarkan', $options, '', 'id="berdasarkan" class="form-control" style="width: 140px"');
 								?>
 								<input type="text" class="form-control" name="cari" id="search" style="width: 200px" placeholder="Kata kunci pencarian ..." />
 							</form>

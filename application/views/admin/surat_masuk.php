@@ -35,7 +35,7 @@
 				<th>Tanggal Surat</th>
 				<th>Nomor Surat</th>
 				<th>Lampiran</th>
-				<th width="7%">Diajukan Kepada</th>
+				<th width="15%">Diajukan Kepada</th>
 				<th>Instruksi</th>
 				<th width="1%">Aksi</th>
 			</tr>
@@ -73,12 +73,11 @@
 							}
 							result.diajukan_kepada = "";
 							if(result.diajukan_kepada_s) {
+								result.diajukan_kepada += "<ul>";
 								$.each(result.diajukan_kepada_s, function(i, diajukan_kepada){
-									if(i != 0){
-										result.diajukan_kepada += ", ";
-									}
-									result.diajukan_kepada += diajukan_kepada.tujuan;
+									result.diajukan_kepada += "<li>" + diajukan_kepada.tujuan + "</li>";
 								});
+								result.diajukan_kepada += "</ul>";
 							}
 						    items.push(
 						    	$('<tr/>').html(

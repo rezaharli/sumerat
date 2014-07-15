@@ -3,6 +3,15 @@ class Diajukan_Kepada extends CI_Model {
 
     var $table = 'diajukan_kepada';
 
+    function add($data){
+        $this->db->insert($this->table, $data); 
+    }
+
+    function delete_by_id_surat_masuk($id_surat_masuk) {
+        $this->db->where('id_surat_masuk', $id_surat_masuk);
+		$this->db->delete($this->table); 
+    }
+
     function select_by_id_surat_masuk($id_surat_masuk) {
         $this->db->from($this->table);
         $this->db->where('id_surat_masuk', $id_surat_masuk);

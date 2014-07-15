@@ -50,6 +50,7 @@ class SuratMasuk extends CI_Controller {
 
 	function do_add($data){
 		$this->surat_masuk->add($data);
+		return $this->surat_masuk->select_biggest_id();
 	}
 
 	function do_delete_file($id){
@@ -68,14 +69,16 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function edit() {
-		$id					= $this->uri->segment(3);
-		$data['results']	= $this->surat_masuk->select_by_id($id);
+		$id_surat_masuk	= $this->uri->segment(3);
+		$this->diajukan_kepada->delete_by_id_surat_masuk($id_surat_masuk);
+
+		$data['results']	= $this->surat_masuk->select_by_id($id_surat_masuk);
 		$data['page']		= "f_surat_masuk";
 		$this->load->view('admin/aaa', $data);
 	}
 
 	function form_process(){
-		$id	= $this->input->post('idp');
+		$id_surat_masuk	= $this->input->post('idp');
 
 		$data = array(
             'indeks' 				=> $this->input->post('indeks'),
@@ -91,31 +94,6 @@ class SuratMasuk extends CI_Controller {
             'perihal'			 	=> $this->input->post('perihal')
             );
 
-		// $diajukan_kepada_sekretaris 	= $this->input->post('diajukan_kepada_sekretaris');
-		// if(isset($diajukan_kepada_sekretaris)){
-		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_sekretaris.'</p>';
-		// }
-
-		// $diajukan_kepada_kepala_bidang_ll 	= $this->input->post('diajukan_kepada_kepala_bidang_ll');
-		// if(isset($diajukan_kepada_kepala_bidang_ll)){
-		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_ll.'</p>';
-		// }
-
-		// $diajukan_kepada_kepala_bidang_sarpra 	= $this->input->post('diajukan_kepada_kepala_bidang_sarpra');
-		// if(isset($diajukan_kepada_kepala_bidang_sarpra)){
-		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_sarpra.'</p>';
-		// }
-
-		// $diajukan_kepada_kepala_bidang_kominfo 	= $this->input->post('diajukan_kepada_kepala_bidang_kominfo');
-		// if(isset($diajukan_kepada_kepala_bidang_kominfo)){
-		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_kepala_bidang_kominfo.'</p>';
-		// }
-
-		// $diajukan_kepada_ka_uptd_pkb 	= $this->input->post('diajukan_kepada_ka_uptd_pkb');
-		// if(isset($diajukan_kepada_ka_uptd_pkb)){
-		// 	$data['diajukan_kepada'] = $data['diajukan_kepada'].'<p>'.$diajukan_kepada_ka_uptd_pkb.'</p>';
-		// }
-
 		$config['upload_path'] 		= './upload/surat_masuk';
 		$config['allowed_types'] 	= '*';
 		$config['file_name'] 		= ellipsize($_FILES['file_surat']['name'], 32, .5);
@@ -124,16 +102,27 @@ class SuratMasuk extends CI_Controller {
 
 		if ($this->upload->do_upload('file_surat')) {
 			if($this->uri->segment(3) == "edit"){
-				$this->do_delete_file($id);
+				$this->do_delete_file($id_surat_masuk);
 			}
 			$upload_data = $this->upload->data();
 			$data['file'] = $upload_data['file_name'];
 		}
 
 		if($this->uri->segment(3) == "edit"){
-			$this->do_edit($id, $data);
+			$this->do_edit($id_surat_masuk, $data);
 		} else if($this->uri->segment(3) == "add") {
-			$this->do_add($data);
+			$id_surat_masuk = $this->do_add($data);
+		}
+
+		$diajukan_kepada_s = $this->input->post('diajukan_kepada');
+		foreach ($diajukan_kepada_s as $diajukan_kepada) {
+			if ( ! empty($diajukan_kepada)) {
+				$data_diajukan_kepada = array(
+					'id_surat_masuk'	=> $id_surat_masuk,
+					'tujuan'			=> $diajukan_kepada
+					);
+				$this->diajukan_kepada->add($data_diajukan_kepada);
+			}
 		}
 
 		redirect('suratmasuk');

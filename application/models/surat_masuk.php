@@ -30,6 +30,13 @@ class Surat_Masuk extends CI_Model {
         return ($query->num_rows() > 0)  ? $query->result() : FALSE;
     }
 
+    function select_biggest_id() {
+        $this->db->limit(1);
+        $this->db->order_by("id", "desc"); 
+        $query = $this->db->get($this->table);
+        return $query->row();
+    }
+
     function select_by_id($id) {
         $this->db->where('id', $id);
         $query = $this->db->get($this->table);

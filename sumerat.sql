@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2014 at 09:30 AM
+-- Generation Time: Jul 15, 2014 at 08:33 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -29,18 +29,22 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `diajukan_kepada` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_surat_masuk` int(10) NOT NULL,
-  `diajukan_kepada` varchar(50) NOT NULL,
+  `tujuan` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `diajukan_kepada`
 --
 
-INSERT INTO `diajukan_kepada` (`id`, `id_surat_masuk`, `diajukan_kepada`) VALUES
-(1, 3, 'Sekretaris'),
-(2, 4, 'aku'),
-(3, 4, 'kamu');
+INSERT INTO `diajukan_kepada` (`id`, `id_surat_masuk`, `tujuan`) VALUES
+(18, 3, 'Sekretaris'),
+(19, 3, 'Kepala Bidang LL'),
+(20, 3, 'Kepala Bidang SARPRA'),
+(21, 3, 'Kepala Bidang KOMINFO'),
+(22, 3, 'Ka. UPTD PKB'),
+(23, 3, 'bla bla bla'),
+(25, 4, 'Sekretaris');
 
 -- --------------------------------------------------------
 

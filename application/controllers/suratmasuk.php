@@ -62,8 +62,9 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function delete() {
-		$id	= $this->uri->segment(3);
-		$this->surat_masuk->delete($id);
+		$id_surat_masuk	= $this->uri->segment(3);
+		$this->surat_masuk->delete($id_surat_masuk);
+		$this->diajukan_kepada->delete_by_id_surat_masuk($id_surat_masuk);
 		redirect('suratmasuk');
 	}
 

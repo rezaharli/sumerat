@@ -9,11 +9,11 @@
 	
 <form action="<?php echo base_URL()?>surattugas/cetak/" method="post" accept-charset="utf-8">	
 
-	<table class="table-form" align="center" width="100%" border="5">
+	<table class="table table-bordered table-hover" align="center" width="100%" border="5">
 		<tr>
 			<?php for ($i = 1; $i <= $jumlah_petugas; $i++):?>
 				<td width="33%" align="center">
-					<table class="table-form">
+					<table class="" style="background-color: #EBEBEB;">
 						<tr>
 							<td width="30%">Nama Utusan</td>
 							<td>

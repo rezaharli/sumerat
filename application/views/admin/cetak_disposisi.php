@@ -56,7 +56,7 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 				?>
 			</ul>
 		</td>
-		<td width="25%" colspan="2"><b>Informasi/Instruksi</b><br /><?php echo $results->instruksi; ?></td>
+		<td width="25%" colspan="2" valign="top"><b>Informasi/Instruksi</b><br /><?php echo $results->instruksi; ?></td>
 	</tr>
 </table>
 </body>

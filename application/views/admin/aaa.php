@@ -78,7 +78,9 @@
 	    <div class="navbar navbar-inverse navbar-fixed-top">
 	      	<div class="container">
 	        	<div class="navbar-header">
-	         		<span class="navbar-brand"><strong style="font-family: calibri;">Ap. SUMERAT</strong></span>
+	         		<span class="navbar-brand">
+	         			<strong style="font-family: calibri;">Ap. SUMERAT</strong>
+	         		</span>
 	          		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 	            		<span class="icon-bar"></span>
 	            		<span class="icon-bar"></span>
@@ -143,16 +145,16 @@
 	    					<table>
 	    						<tr>
 	    							<td align="center">
-										<img src="<?php echo base_url(); ?>upload/logo1.png" class="thumbnail span3" style="display: inline; float: left; margin-right: 20px; width: 100px; height: 100px">
+										<img src="<?php echo base_url(); ?>upload/logo1.png" class="thumbnail span3" style="display: inline; float: RIGHT; margin-right: 80px; width: 100px; height: 100px">
 	    							</td>
-	    							<td>
+	    							<td align="center">
 						                <h2 style="margin: 15px 0 10px 0; color: #000;"><?php echo $q_instansi->nama; ?></h2>
 						                <div style="color: #000; font-size: 16px; font-family: Tahoma" class="clearfix">
 						                	<b>Alamat : <?php echo $q_instansi->alamat; ?></b>
 						                </div>
 	    							</td>
 	    							<td align="center">
-										<img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" class="thumbnail span3" style="display: inline; float: right; margin-right: 20px; width: 100px; height: 100px">
+										<img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" class="thumbnail span3" style="display: inline; float: right; margin-left: 80px; width: 100px; height: 100px">
 	    							</td>
 	    						</tr>
 	    					</table>

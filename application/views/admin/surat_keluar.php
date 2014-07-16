@@ -14,16 +14,16 @@
 							<form class="navbar-form navbar-left" method="post" action="#">
 								<?php 
 								$options = array(
-								      	'indeks' => 'indeks',
-								      	'kode' => 'kode',
-								      	'nomor_urut' => 'no urut',
-								      	'isi_ringkas' => 'isi ringkas',
-								      	'kepada' => 'kepada',
-								      	'pengolah' => 'pengolah',
-								      	'tanggal_surat' => 'tanggal surat',
-								      	'lampiran' => 'lampiran',
-								      	'catatan' => 'catatan',
-								      	'dinas_instansi' => 'dinas / instansi'
+								      	'indeks' => 'Indeks',
+								      	'kode' => 'Kode',
+								      	'nomor_urut' => 'No Urut',
+								      	'isi_ringkas' => 'Isi Ringkas',
+								      	'kepada' => 'Kepada',
+								      	'pengolah' => 'Pengolah',
+								      	'tanggal_surat' => 'Tanggal Surat',
+								      	'lampiran' => 'Lampiran',
+								      	'catatan' => 'Catatan',
+								      	'dinas_instansi' => 'Dinas / Instansi'
 								    );
 
 								echo form_dropdown('berdasarkan', $options, '', 'id="berdasarkan" class="form-control" style="width: 140px"');

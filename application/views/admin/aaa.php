@@ -139,12 +139,23 @@
 	    	<div class="page-header" id="banner">
 	    		<div class="row">
 	    			<div class="" style="padding: 15px 15px 0 15px;">
-	    				<div class="well well-sm">
-							<img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" class="thumbnail span3" style="display: inline; float: left; margin-right: 20px; width: 100px; height: 100px">
-			                <h2 style="margin: 15px 0 10px 0; color: #000;"><?php echo $q_instansi->nama; ?></h2>
-			                <div style="color: #000; font-size: 16px; font-family: Tahoma" class="clearfix">
-			                	<b>Alamat : <?php echo $q_instansi->alamat; ?></b>
-			                </div>
+	    				<div class="well well-sm" align="center">
+	    					<table>
+	    						<tr>
+	    							<td align="center">
+										<img src="<?php echo base_url(); ?>upload/logo1.png" class="thumbnail span3" style="display: inline; float: left; margin-right: 20px; width: 100px; height: 100px">
+	    							</td>
+	    							<td>
+						                <h2 style="margin: 15px 0 10px 0; color: #000;"><?php echo $q_instansi->nama; ?></h2>
+						                <div style="color: #000; font-size: 16px; font-family: Tahoma" class="clearfix">
+						                	<b>Alamat : <?php echo $q_instansi->alamat; ?></b>
+						                </div>
+	    							</td>
+	    							<td align="center">
+										<img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" class="thumbnail span3" style="display: inline; float: right; margin-right: 20px; width: 100px; height: 100px">
+	    							</td>
+	    						</tr>
+	    					</table>
 			            </div>
 			        </div>
 			    </div>

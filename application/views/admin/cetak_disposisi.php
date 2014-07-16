@@ -47,7 +47,15 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 		<td width="25%"><b>Lampiran</b><br /><?php echo $results->lampiran; ?></td>
 	</tr>
 	<tr>
-		<td width="25%" colspan="2"><b>Diajukan/Diteruskan Kepada</b><br /><?php echo $results->diajukan_kepada; ?></td>
+		<td width="25%" colspan="2"><b>Diajukan/Diteruskan Kepada</b><br />
+			<ul>
+				<?php 
+				foreach ($results->diajukan_kepada_s as $diajukan_kepada) {
+					echo "<li>".$diajukan_kepada->tujuan."</li>";
+				}
+				?>
+			</ul>
+		</td>
 		<td width="25%" colspan="2"><b>Informasi/Instruksi</b><br /><?php echo $results->instruksi; ?></td>
 	</tr>
 </table>

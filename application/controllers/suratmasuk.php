@@ -56,9 +56,13 @@ class SuratMasuk extends CI_Controller {
 	}
 
 	function cetak() {
-		$id = $this->uri->segment(3);
-		$a['results'] = $this->surat_masuk->select_by_id($id);
-		$this->load->view('admin/cetak_disposisi', $a);
+		$id_surat_masuk = $this->uri->segment(3);
+		$surat_masuk_result = $this->surat_masuk->select_by_id($id_surat_masuk);
+		if( ! empty($surat_masuk_result)){
+			$surat_masuk_result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($surat_masuk_result->id);
+		}
+		$data['results'] = $surat_masuk_result;
+		$this->load->view('admin/cetak_disposisi', $data);
 	}
 
 	function delete() {

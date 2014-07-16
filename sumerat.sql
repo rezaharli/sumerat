@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2014 at 07:31 AM
+-- Generation Time: Jul 16, 2014 at 09:07 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `diajukan_kepada` (
   `id_surat_masuk` int(10) NOT NULL,
   `tujuan` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 -- --------------------------------------------------------
 
@@ -1152,7 +1152,7 @@ CREATE TABLE IF NOT EXISTS `surat_keluar` (
   `dinas_instansi` varchar(50) NOT NULL,
   `file` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -1175,7 +1175,7 @@ CREATE TABLE IF NOT EXISTS `surat_masuk` (
   `file` varchar(50) NOT NULL,
   `instruksi` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -1198,7 +1198,7 @@ CREATE TABLE IF NOT EXISTS `tr_instansi` (
 --
 
 INSERT INTO `tr_instansi` (`id`, `nama`, `alamat`, `kepsek`, `nip_kepsek`, `logo`) VALUES
-(1, 'Dinas Perhubungan Komunikasi dan Informatika', 'Jl. KRT. Pringgodiningrat Beran Tridadi Sleman Yogyakarta 55511', 'Elisabeth TANDI', '1103124325', 'logo2.gif');
+(1, 'Dinas Perhubungan Komunikasi dan Informatika', 'Jl. KRT. Pringgodiningrat Beran Tridadi Sleman Yogyakarta 55511', 'Elisabeth TANDI', '1103124325', 'logo2.png');
 
 -- --------------------------------------------------------
 

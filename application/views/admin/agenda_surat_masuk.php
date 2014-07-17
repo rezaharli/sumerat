@@ -74,7 +74,15 @@
 				<td><?php echo $result->tanggal_surat; ?></td>
 				<td><?php echo $result->nomor_surat; ?></td>
 				<td><?php echo $result->lampiran; ?></td>
-				<td><?php echo $result->diajukan_kepada; ?></td>
+				<td>
+					<?php if( ! empty($result->diajukan_kepada_s)){ ?>
+						<?php echo "<ul>"; ?>
+						<?php foreach ($result->diajukan_kepada_s as $diajukan_kepada) { ?>
+							<?php echo "<li>".$diajukan_kepada->tujuan."</li>"; ?>
+						<?php } ?>
+						<?php echo "</ul>"; ?>
+					<?php } ?>
+				</td>
 				<td><?php echo $result->instruksi; ?></td>
 			</tr>
 			<?php 

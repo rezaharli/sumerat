@@ -33,7 +33,16 @@ class Home extends CI_Controller {
 		$a['tgl_end']	= $tgl_end;		
 
 		if ($jenis_surat == "agenda_surat_masuk") {	
-			$a['data']	= $this->db->query("SELECT * FROM surat_masuk WHERE tanggal_surat >= '$tgl_start' AND tanggal_surat <= '$tgl_end' ORDER BY tanggal_surat")->result(); 
+			$this->load->model('surat_masuk');	
+			$this->load->model('diajukan_kepada');
+			$surat_masuk_results = $this->db->query("SELECT * FROM surat_masuk WHERE tanggal_surat >= '$tgl_start' AND tanggal_surat <= '$tgl_end' ORDER BY tanggal_surat")->result();
+			
+			if( ! empty($surat_masuk_results)){
+				foreach ($surat_masuk_results as $surat_masuk_result) {
+					$surat_masuk_result->diajukan_kepada_s = $this->diajukan_kepada->select_by_id_surat_masuk($surat_masuk_result->id);
+				}
+			}
+			$a['data'] = $surat_masuk_results;
 			$this->load->view('admin/agenda_surat_masuk', $a);
 		} else {
 			$a['data']	= $this->db->query("SELECT * FROM surat_keluar WHERE tanggal_surat >= '$tgl_start' AND tanggal_surat <= '$tgl_end' ORDER BY tanggal_surat")->result();

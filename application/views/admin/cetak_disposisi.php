@@ -48,6 +48,7 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 	</tr>
 	<tr>
 		<td width="25%" colspan="2"><b>Diajukan/Diteruskan Kepada</b><br />
+		<?php if( ! empty($results->diajukan_kepada_s)) { ?>
 			<ul>
 				<?php 
 				foreach ($results->diajukan_kepada_s as $diajukan_kepada) {
@@ -55,6 +56,7 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 				}
 				?>
 			</ul>
+		<?php } ?>
 		</td>
 		<td width="25%" colspan="2" valign="top"><b>Informasi/Instruksi</b><br /><?php echo $results->instruksi; ?></td>
 	</tr>

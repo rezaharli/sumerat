@@ -124,7 +124,11 @@ class SuratMasuk extends CI_Controller {
             'perihal'			 	=> $this->input->post('perihal')
             );
 
-		$config['upload_path'] 		= './upload/surat_masuk';
+		$path = './upload/surat_masuk/';
+		$config['upload_path'] 		= $path;
+		if(!is_dir($path)) {
+			mkdir($path, 0777);
+		}
 		$config['allowed_types'] 	= '*';
 		$config['file_name'] 		= ellipsize($_FILES['file_surat']['name'], 32, .5);
 
